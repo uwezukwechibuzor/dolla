@@ -1,17 +1,20 @@
 syntax = "proto3";
+
 package dollar.dollar;
 
 import "amino/amino.proto";
 import "gogoproto/gogo.proto";
 import "dollar/dollar/params.proto";
+import "dollar/dollar/post.proto";
 
 option go_package = "dollar/x/dollar/types";
 
 // GenesisState defines the dollar module's genesis state.
 message GenesisState {
+  
   // params defines all the parameters of the module.
-  Params params = 1 [
-    (gogoproto.nullable) = false,
-    (amino.dont_omitempty) = true
-  ];
+           Params params    = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  repeated Post   postList  = 2 [(gogoproto.nullable) = false] ;
+           uint64 postCount = 3;
 }
+

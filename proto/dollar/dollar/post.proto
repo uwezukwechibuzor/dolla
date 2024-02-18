@@ -1,0 +1,11 @@
+syntax = "proto3";
+package dollar.dollar;
+
+option go_package = "dollar/x/dollar/types";
+
+message Post {
+  uint64 id = 1;
+  string title = 2; 
+  string body = 3; 
+  string creator = 4;
+}
